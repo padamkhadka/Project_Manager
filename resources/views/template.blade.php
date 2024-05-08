@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>ScriptQube Management</title>
+    <title>ScriptQube</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{ asset('admin_template_assets/vendors/mdi/css/materialdesignicons.min.css')}}">
@@ -70,7 +70,7 @@
                   <span class="count bg-success"></span>
                 </div>
                 <div class="profile-name">
-                  <h5 class="mb-0 font-weight-normal">Bijay SHarma</h5>
+                  <h5 class="mb-0 font-weight-normal">Bijay</h5>
                   <span>Gold Member</span>
                 </div>
               </div>
