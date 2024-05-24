@@ -1,5 +1,5 @@
 schoolReload();
-function schoolReload(){
+function schoolReload() {
     $.ajaxSetup({
         headers: {
             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
@@ -25,10 +25,11 @@ function schoolReload(){
                      <td >
                      <span school_id='${element.id}' class="material-symbols-outlined deleteSchool p-2" style='cursor:pointer;' >delete</span>
                      <span school_id='${element.id}' class="material-symbols-outlined updateSchool p-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style='cursor:pointer;' >edit</span>
-                     
+
+
                      </td>
                   </tr>
-                    
+
                     `);
             });
         },
@@ -38,12 +39,12 @@ function schoolReload(){
     });
 }
 
-// school name delete  
-$(document).ready(function(){
+// school name delete
+$(document).ready(function () {
     $(".deleteSchool").click(function () {
-      var schoolid =  $(this).attr('school_id');
-       
-      $.ajaxSetup({
+        var schoolid = $(this).attr('school_id');
+
+        $.ajaxSetup({
             headers: {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
             }
@@ -60,7 +61,7 @@ $(document).ready(function(){
             success: function (response) {
                 if (response == 'delete') {
                     Swal.fire({
-                        title:  'delete success',
+                        title: 'delete success',
                         text: "Thank you",
                         icon: "success"
                     });
@@ -85,22 +86,22 @@ $(document).ready(function(){
 });
 
 
-// school name edit 
+// school name edit
 $(document).ready(function () {
-    $(".updateSchool").click(function(){
+    $(".updateSchool").click(function () {
         var schoolEdit = $(this).attr('school_id');
         //alert(schoolEdit);
         var school_id = $(this).parents().find('.school_id').html();
         console.log(school_id);
-        
+
         $.ajaxSetup({
             headers: {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
             }
-        }); 
+        });
 
-       // console.log(schoolEdit);
-           // return false
+        // console.log(schoolEdit);
+        // return false
         $.ajax({
             url: "/admin/school-update",
             method: 'GET',
@@ -136,5 +137,5 @@ $(document).ready(function () {
 
 
     });
-    
+
 });

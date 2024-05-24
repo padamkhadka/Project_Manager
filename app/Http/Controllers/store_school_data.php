@@ -19,15 +19,15 @@ class store_school_data extends Controller
      $schoolDetails->contact_number=$school_contact;
      $schoolDetails->Address=$school_address;
      $schoolDetails->url=$school_school_url;
-    
+
     if($schoolDetails->save() )
     {
         echo "save";
 
     }else{
       echo "not save";
-    } 
-     
+    }
+
 
 
 
@@ -53,24 +53,25 @@ class store_school_data extends Controller
 
    }
    // school update function
-    public function SchoolUpdate(Request $request){
-       
-    
-      echo $request->school_name;
+   public function schoolUpdate(Request $request)
+   {
+       $SchoolId = $request->id;
+       $SchoolName = $request->School_name;
 
-      // $school_id = $request->id;
-      // echo $school_id;
-      // $school_id 
+       // Assuming you have a model named SchoolDetails
+       $School = SchoolDetails::find($SchoolId);
 
-    //  if(SchoolDetails::where('id',$school_id)->update())
-    //  {
-    //    echo 'update';
-    //  }else{
-    //    echo 'not update';
-    //  }
+       if ($School) {
+           $School->name = $SchoolName; // Assuming 'name' is the column name in your database table
+           $School->save();
+           return 'School updated successfully';
+       } else {
+           return 'School not found';
+       }
+
     }
 
-   
+
 
 
 
